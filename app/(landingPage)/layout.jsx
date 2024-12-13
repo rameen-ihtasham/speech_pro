@@ -1,12 +1,7 @@
 import Nav from '@/components/Nav';
-import '../styles/global.css';
+import "../../styles/global.css";
 import { Roboto } from 'next/font/google';
 
-export const metadata = {
-  title: 'Speech Pro',
-  description:
-    'A web based application built for improving your spoken English skills',
-};
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
