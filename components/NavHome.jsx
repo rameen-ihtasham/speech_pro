@@ -38,6 +38,14 @@ const NavHome = () => {
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
+    const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
     return (
     <Box
       height={'10vh'}
@@ -54,7 +62,35 @@ const NavHome = () => {
     <Box 
     sx={{display: 'flex'}} >
         <Button sx={{color:'white' }}>Home</Button>
-        <Button sx={{color:'white'}}>Practise</Button>
+        <Button
+        id="demo-positioned-button"
+        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+        sx={{color:'white' }}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Beginner</MenuItem>
+        <MenuItem onClick={handleClose}>Intermediate</MenuItem>
+        <MenuItem onClick={handleClose}>Pro</MenuItem>
+      </Menu>
         <Button sx={{color:'white'}}>Progress</Button>
     </Box>
     <Button>
