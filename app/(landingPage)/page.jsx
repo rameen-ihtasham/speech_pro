@@ -2,6 +2,9 @@
 import { Box, Button, Typography, Link } from '@mui/material';
 import Image from 'next/image';
 import Nav from '@/components/Nav';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import StackedBarChartIcon from '@mui/icons-material/StackedBarChart';
 
 export default function Home() {
   return (
@@ -46,7 +49,7 @@ export default function Home() {
       </Box>
       <Box height={'40vh'} display={'flex'} justifyContent={'space-around'}>
         <Box
-          width={'300px'}
+          width={'25%'}
           height={'240px'}
           bgcolor={'#edd9c0'}
           sx={{
@@ -58,15 +61,15 @@ export default function Home() {
           flexDirection={'column'}
           justifyContent={'center'}
           alignItems={'center'}
-          gap={1}
+          gap={3}
         >
-          <Image src={'/robo.png'} alt='img' width={140} height={140}></Image>
+          <AccessTimeIcon sx={{ fontSize: '80px', color: '#93C276' }} />
           <Typography variant='h5' fontWeight={'500'} color='#3d405b'>
             Real-Time Feedback
           </Typography>
         </Box>
         <Box
-          width={'300px'}
+          width={'25%'}
           height={'240px'}
           bgcolor={'#edd9c0'}
           sx={{
@@ -78,15 +81,16 @@ export default function Home() {
           flexDirection={'column'}
           justifyContent={'center'}
           alignItems={'center'}
-          gap={1}
+          gap={3}
         >
-          <Image src={'/robo.png'} alt='img' width={140} height={140}></Image>
+          <TrendingUpIcon sx={{ fontSize: '80px', color: '#93C276' }} />
+
           <Typography variant='h5' fontWeight={'500'} color='#3d405b'>
             Progress Checking
           </Typography>
         </Box>
         <Box
-          width={'300px'}
+          width={'25%'}
           height={'240px'}
           bgcolor={'#edd9c0'}
           sx={{
@@ -98,9 +102,9 @@ export default function Home() {
           flexDirection={'column'}
           justifyContent={'center'}
           alignItems={'center'}
-          gap={1}
+          gap={3}
         >
-          <Image src={'/robo.png'} alt='img' width={140} height={140}></Image>
+          <StackedBarChartIcon sx={{ fontSize: '80px', color: '#93C276' }} />
           <Typography variant='h5' fontWeight={'500'} color='#3d405b'>
             Multiple Levels
           </Typography>
