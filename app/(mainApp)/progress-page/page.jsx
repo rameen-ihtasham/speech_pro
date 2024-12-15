@@ -13,12 +13,15 @@ import Image from 'next/image';
 
 const Page = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [graph, setGraph] = React.useState(false);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+    setGraph(true);
   };
 
   return (
@@ -69,19 +72,21 @@ const Page = () => {
           </MenuItem>
         </Menu>
       </Box>
-      <Box
-        height={'80vh'}
-        display={'flex'}
-        alignItems={'center'}
-        justifyContent={'center'}
-      >
-        <Image
-          src={'/graph.png'}
-          alt='progress graph'
-          width={1000}
-          height={450}
-        ></Image>
-      </Box>
+      {graph && (
+        <Box
+          height={'80vh'}
+          display={'flex'}
+          alignItems={'center'}
+          justifyContent={'center'}
+        >
+          <Image
+            src={'/progress.png'}
+            alt='progress graph'
+            width={1000}
+            height={450}
+          ></Image>
+        </Box>
+      )}
     </div>
   );
 };

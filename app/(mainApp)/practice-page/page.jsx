@@ -7,8 +7,19 @@ import { useState } from 'react';
 import MicTwoToneIcon from '@mui/icons-material/MicTwoTone';
 import { MicTwoTone } from '@mui/icons-material';
 import { pink } from '@mui/material/colors';
+import SettingsVoiceTwoToneIcon from '@mui/icons-material/SettingsVoiceTwoTone';
 
 const Page = () => {
+  const [recording, setRecording] = useState(false);
+  const [submit, setSubmit] = useState(false);
+
+  const handleRecording = () => {
+    setRecording(!recording);
+  };
+  const handleSubmit = () => {
+    setSubmit(!submit);
+  };
+
   return (
     <Box>
       <Box
@@ -22,9 +33,12 @@ const Page = () => {
             Cleared tests of Intermediate level
           </Typography>
           <Box>
-            <LensIcon sx={{ color: '#013221' }} />
-            <LensIcon sx={{ color: '#013221' }} />
-            <LensIcon sx={{ color: '#013221' }} />
+            {submit ? (
+              <LensIcon sx={{ color: '#013221' }} />
+            ) : (
+              <TripOriginIcon sx={{ color: '#AB3131' }} />
+            )}
+
             <TripOriginIcon sx={{ color: '#AB3131' }} />
             <TripOriginIcon sx={{ color: '#AB3131' }} />
             <TripOriginIcon sx={{ color: '#AB3131' }} />
@@ -57,13 +71,13 @@ const Page = () => {
             padding={4}
           >
             <Typography sx={{ opacity: '1', fontSize: '18px' }}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet
-              quia, reiciendis dolores facilis dolorem sit nam delectus
-              cupiditate, velit non labore porro laudantium asperiores ad! Earum
-              corporis possimus blanditiis eligendi. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Delectus, quasi quas laudantium
-              nesciunt nobis magni est vero iure quibusdam quis, eaque corporis
-              aspernatur iusto temporibus ab nihil, repudiandae nisi sint!
+              I am dedicated to improving my spoken English by practicing
+              regularly and focusing on clear pronunciation, correct grammar,
+              and expanding my vocabulary. I will engage in meaningful
+              conversations, repeat useful phrases, and describe everyday
+              situations to enhance my fluency, confidence, and ability to
+              express myself effectively in English in various real-life
+              scenarios.
             </Typography>
           </Box>
           <Box
@@ -77,10 +91,17 @@ const Page = () => {
               variant='contained'
               sx={{
                 width: '7%',
-                bgcolor: '#00563E',
+                bgcolor: recording ? '#FDFD66' : '#00563E',
               }}
+              onClick={handleRecording}
             >
-              <MicTwoTone sx={{ fontSize: '40px' }} />
+              {recording == true ? (
+                <SettingsVoiceTwoToneIcon
+                  sx={{ fontSize: '40px', color: 'black' }}
+                />
+              ) : (
+                <MicTwoTone sx={{ fontSize: '40px' }} />
+              )}
             </Button>
             <Button
               variant='contained'
@@ -90,13 +111,14 @@ const Page = () => {
                 color: 'black',
                 fontWeight: '600',
               }}
+              disabled={recording}
+              onClick={handleSubmit}
             >
-              Submit
+              {submit ? 'Next Test' : 'Submit'}
             </Button>
           </Box>
         </Box>
       </Box>
-
       <Box
         display={'flex'}
         alignItems={'center'}
@@ -126,13 +148,14 @@ const Page = () => {
             sx={{ border: '1px solid black', borderRadius: '8px' }}
             padding={4}
           >
-            <Typography sx={{ opacity: '1', fontSize: '18px' }}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet
-              quia, reiciendis dolores facilis dolorem sit nam delectus
-              cupiditate, velit non labore porro laudantium asperiores ad! Earum
-              quia, reiciendis dolores facilis dolorem sit nam delectus
-              cupiditate, velit non labore porro laudantium asperiores ad! Earum
-            </Typography>
+            {submit && (
+              <Typography sx={{ opacity: '1', fontSize: '18px' }}>
+                Great job! Your speech was clear, confident, and grammatically
+                sound, with good vocabulary. To improve, work on reducing pauses
+                for better fluency and adding variation in tone for a more
+                engaging delivery. <em>Score: 87/100.</em>
+              </Typography>
+            )}
           </Box>
         </Box>
       </Box>
