@@ -1,5 +1,7 @@
+'use client';
 import { Box, Typography, Button } from '@mui/material';
 import React from 'react';
+import { redirect } from 'next/navigation';
 
 const Nav = () => {
   return (
@@ -20,11 +22,14 @@ const Nav = () => {
         sx={{
           bgcolor: '#f4f1de',
           color: '#3d405b',
-          borderRadius: '10%',
-          width: '7rem',
+          borderRadius: '10px',
+          width: '15rem',
+        }}
+        onClick={() => {
+          redirect('/level-selection');
         }}
       >
-        Login
+        Login with Google
       </Button>
     </Box>
   );
