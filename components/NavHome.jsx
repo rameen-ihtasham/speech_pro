@@ -17,7 +17,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 
 const pages = ['Home', 'Practise', 'Progress'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavHome = () => {
   
@@ -32,7 +31,7 @@ const NavHome = () => {
     };
   
     const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
+      setAnchorElNav(null); 
     };
   
     const handleCloseUserMenu = () => {
@@ -56,7 +55,7 @@ const NavHome = () => {
       paddingLeft={10}
       paddingRight={10}
     >
-      <Typography variant='h3' color='#f4f1de' fontWeight={700}>
+      <Typography variant='h4' color={'#f4f1de'} fontWeight={700}>
         Speech Pro
       </Typography>
     <Box 
@@ -70,7 +69,7 @@ const NavHome = () => {
         onClick={handleClick}
         sx={{color:'white' }}
       >
-        Dashboard
+        Practise
       </Button>
       <Menu
         id="demo-positioned-menu"
